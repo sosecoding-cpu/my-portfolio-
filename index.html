@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MANIKYA DEV gg :) — Portfolio</title>
+  <meta name="description" content="Portfolio of MANIKYA DEV gg :): web projects and contact." />
+  <style>
+    :root{
+      --bg1:#0f1226;
+      --bg2:#121735;
+      --glass:rgba(255,255,255,.08);
+      --border:rgba(255,255,255,.14);
+      --text:#f3f4ff;
+      --muted:#b9c0ff;
+      --accent:#7c3aed;   /* purple */
+      --accent2:#22d3ee;  /* cyan   */
+      --win:#10b981;
+      --shadow:0 12px 40px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.06);
+      --radius:20px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; color:var(--text); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      background:
+        radial-gradient(1200px 700px at -10% -10%, rgba(124,58,237,.25), transparent 60%),
+        radial-gradient(1000px 600px at 110% 110%, rgba(34,211,238,.2), transparent 60%),
+        linear-gradient(160deg, var(--bg1), var(--bg2));
+      display:flex; align-items:center; justify-content:center; padding:24px;
+    }
+    .container{
+      width:min(1000px, 96vw);
+      display:grid; gap:20px;
+    }
+
+    /* Card / glass */
+    .glass{
+      background:var(--glass); border:1px solid var(--border); border-radius:var(--radius);
+      box-shadow:var(--shadow); backdrop-filter: blur(12px) saturate(130%);
+    }
+
+    /* Header */
+    header{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding:18px 20px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px; font-weight:900; letter-spacing:.3px;
+    }
+    .logo{width:40px;height:40px;border-radius:14px;
+      background:
+        radial-gradient(12px 12px at 70% 30%, #fff6, transparent 60%),
+        conic-gradient(from 200deg, var(--accent), var(--accent2), var(--accent));
+      box-shadow: 0 0 22px rgba(124,58,237,.55), inset 0 1px 2px rgba(255,255,255,.35);
+    }
+    nav{display:flex; gap:8px; flex-wrap:wrap}
+    .btn{
+      appearance:none; border:none; cursor:pointer; color:var(--text); font-weight:700;
+      background:linear-gradient(180deg, rgba(124,58,237,.25), rgba(124,58,237,.12));
+      border:1px solid rgba(124,58,237,.35);
+      padding:10px 14px; border-radius:12px; transition:.2s ease; box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+      text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn:active{transform:translateY(0)}
+    .btn.ghost{background:rgba(255,255,255,.06); border-color:var(--border);}
+
+    /* Hero */
+    .hero{
+      display:grid; gap:16px; padding:24px 22px; text-align:left;
+    }
+    .title{font-size:clamp(28px, 4vw, 40px); font-weight:900; line-height:1.1; margin:0}
+    .subtitle{color:var(--muted); margin:2px 0 10px 0}
+    .chip{
+      display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px;
+      border:1px solid var(--border); background:rgba(255,255,255,.06); font-size:13px; font-weight:800; letter-spacing:.3px;
+    }
+
+    /* Projects */
+    .section{padding:18px 20px}
+    .section h2{margin:0 0 12px 0; font-size:22px; letter-spacing:.3px}
+    .grid{
+      display:grid; grid-template-columns: repeat( auto-fit, minmax(260px,1fr) );
+      gap:14px;
+    }
+    .card{
+      padding:16px; border-radius:16px; background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      border:1px solid var(--border); box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+      display:grid; gap:10px; transition: transform .12s ease, box-shadow .2s ease;
+      min-height:180px;
+    }
+    .card:hover{ transform:translateY(-2px); box-shadow:0 14px 28px rgba(0,0,0,.35)}
+    .card h3{margin:0; font-size:18px}
+    .muted{color:var(--muted); font-size:14px}
+    .tags{display:flex; gap:8px; flex-wrap:wrap}
+    .tag{font-size:12px; padding:4px 8px; border-radius:999px; border:1px solid var(--border); background:rgba(255,255,255,.06)}
+    .card-actions{display:flex; gap:8px; flex-wrap:wrap; margin-top:auto}
+
+    /* About & Contact */
+    .about{display:grid; gap:10px}
+    .kbd{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:12px; color:var(--muted)}
+
+    /* Footer */
+    footer{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:14px 16px; font-size:12px; color:var(--muted)}
+
+    /* Anchor smooth */
+    html{scroll-behavior:smooth}
+  </style>
+</head>
+<body>
+  <main class="container">
+    <!-- Header -->
+    <header class="glass">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>MANIKYA DEV gg :)</div>
+      </div>
+      <nav>
+        <a class="btn ghost" href="#projects">Projects</a>
+        <a class="btn ghost" href="#about">About</a>
+        <a class="btn" href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero glass">
+      <span class="chip">Hi 👋 I’m MANIKYA DEV gg :) — Front‑end Learner</span>
+      <h1 class="title">I build small, sharp web projects that are fun to use.</h1>
+      <p class="subtitle">Here are a few things I’ve made recently. More coming soon!</p>
+      <div>
+        <a class="btn" href="#projects">See Projects</a>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section glass">
+      <h2>Projects</h2>
+      <div class="grid">
+        <!-- Project 1: Tic Tac Toe -->
+        <article class="card">
+          <h3>🎮 Tic Tac Toe</h3>
+          <p class="muted">A polished Tic Tac Toe with Player vs Player and Player vs Computer (Easy/Medium/Hard).</p>
+          <div class="tags">
+            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+            <span class="tag">Game</span>
+          </div>
+          <div class="card-actions">
+            <!-- Replace with your real links -->
+            <a class="btn" target="_blank" href="https://transcendent-churros-bbd4db.netlify.app/">Live Demo</a>
+            <a class="btn ghost" target="_blank" href="https://github.com/sosecoding-cpu/tic-tac-toe/blob/main/index.html">Source Code</a>
+          </div>
+        </article>
+
+        <!-- Project 2: My Class Student List -->
+        <article class="card">
+          <h3>👥 My Class Student List</h3>
+          <p class="muted">A simple app to view and manage a class list with clean UI.</p>
+          <div class="tags">
+            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+            <span class="tag">CRUD</span>
+          </div>
+          <div class="card-actions">
+            <!-- Replace with your real links -->
+            <a class="btn" target="_blank" href="https://elegant-maamoul-bafe5b.netlify.app/">Live Demo</a>
+            <a class="btn ghost" target="_blank" href="https://github.com/sosecoding-cpu/my-class-website/blame/main/index.html">Source Code</a>
+          </div>
+        </article>
+
+        <!-- TIP: Duplicate a card block above to add more projects -->
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section glass">
+      <h2>About</h2>
+      <div class="about">
+        <p>I’m MANIKYA DEV gg :) — I love building web projects and learning new things. Right now I’m practicing HTML, CSS and JavaScript by making small web apps and games.</p>
+        <p class="kbd">Skills: HTML • CSS • JavaScript • GitHub Pages • Netlify</p>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section glass">
+      <h2>Contact</h2>
+      <p class="muted">Want to collaborate or give feedback? I’d love to hear from you.</p>
+      <div class="card-actions">
+        <!-- Optional: add your socials -->
+        <a class="btn ghost" target="_blank" href="https://github.com"/>GitHub</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="glass">
+      <span>© <span id="year"></span> MANIKYA DEV gg :)</span>
+      <span>Built with pure HTML & CSS</span>
+    </footer>
+  </main>
+
+  <script>
+    // small enhancement: dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+  </html>
